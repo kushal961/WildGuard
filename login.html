@@ -1,91 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/login.css">
-    <title>Login</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    
+    .custom-shadow {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
+    }
+    
+    @keyframes slideIn {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes scaleIn {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    .animate-slide {
+      animation: slideIn 0.8s ease-in-out forwards;
+    }
+    .animate-fade {
+      animation: fadeIn 1.2s ease-in-out forwards;
+    }
+    .animate-scale {
+      animation: scaleIn 1.2s ease-in-out forwards;
+    }
+    
+    .btn-hover:hover {
+      transform: scale(1.05);
+    }
+   
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
 </head>
-<body>
+<body class="min-h-screen bg-gradient-to-r from-blue-200 via-white-500 to-green-200 flex justify-center items-center py-10">
 
-    <div class="login-page">
-        <div class="content">
-            <h2>Welcome Back!</h2>
+  <div class="bg-white p-10 rounded-2xl custom-shadow w-full max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-8 animate-fade">
 
-            <form class="data">
+    
+    <div class="p-8 animate-slide">
+      <h2 class="text-4xl font-extrabold text-center text-blue-600 mb-6">Login</h2>
 
-                <!-- Email Field -->
-                <div class="entry">
-                    <label for="email"><h3>Email</h3></label>
-                    <div class="input-wrapper">
-                        <input type="email" id="email" placeholder="example@gmail.com" required>
-                        <div class="fa"><i class="fas fa-user"></i></div>
-                    </div>
-                </div>
-
-                <!-- Password Field with Toggle Visibility -->
-                <div class="entry">
-                    <label for="password"><h3>Password</h3></label>
-                    <div class="input-wrapper">
-                        <input type="password" id="password" placeholder="Enter your password" required>
-
-                        <div class="fa" class="icon toggle-password" onclick="togglePasswordVisibility('password')">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Remember Me Checkbox & Forgot Password Link -->
-                <div class="extras">
-                    <label class="remember-me">
-                        <input type="checkbox"> Remember Me
-                    </label>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
-                </div>
-
-                <!-- Login Button -->
-                <div class="entry">
-                    <button type="submit">Login</button>
-                </div>
-
-                <!-- Social Media Login Buttons -->
-                <div class="social-login">
-                    <p>Or login with</p>
-                    <div class="social-buttons">
-                        <button type="button" class="social-btn google-btn">
-                            <img src="./assets/images/social.png" alt="Google Logo" class="google-logo"> Continue with Google
-                        </button>
-                        <button type="button" class="social-btn google-btn">
-                            <img src="./assets/images/facebook.png" alt="Google Logo" class="google-logo"> Continue with Facebook
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Sign-Up Link -->
-                <p class="signup-link">Don't have an account? <a href="register.html">Sign up</a></p>
-
-            </form>
+      
+      <form id="loginForm" class="space-y-6">
+        <div class="space-y-4">
+          <div>
+            <label class="text-lg font-semibold">Email Address</label>
+            <input type="email" id="email" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" placeholder="Enter your email" />
+          </div>
+          <div>
+            <label class="text-lg font-semibold">Password</label>
+            <input type="password" id="password" class="p-3 border border-gray-300 rounded-lg w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300" placeholder="Enter your password" />
+          </div>
         </div>
+
+       
+        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 btn-hover">
+          Login
+        </button>
+      </form>
+
+      
+      <div class="text-center text-gray-500 my-4">OR</div>
+
+     
+      <div class="space-y-4">
+        <button class="w-full bg-red-400 text-white font-semibold py-3 rounded-lg hover:bg-red-600 transition-all duration-300 flex items-center justify-center btn-hover">
+          <img src="https://img.icons8.com/color/24/000000/google-logo.png" alt="Google" class="mr-2"/> Login with Google
+        </button>
+        <button class="w-full bg-blue-400 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 flex items-center justify-center btn-hover">
+          <img src="https://img.icons8.com/color/24/000000/facebook-new.png" alt="Facebook" class="mr-2"/> Login with Facebook
+        </button>
+      </div>
     </div>
 
-    <script>
-        function togglePasswordVisibility(id) {
-            const passwordField = document.getElementById(id);
-            const icon = passwordField.nextElementSibling.querySelector('i');
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } 
-            else {
-                passwordField.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-    </script>
     
+    <div class="image-container animate-scale">
+      <img src="login.jpg" alt="Login Illustration" />
+    </div>
+
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      
+      const formData = {
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+      };
+      
+      console.log("Login Data:", formData);
+    });
+  </script>
 
 </body>
 </html>
+
